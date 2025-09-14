@@ -74,15 +74,16 @@ export default function HomePage() {
       }`}
     >
       <FirebaseAnalytics />
-      {/* Hero Section - Full Screen */}
-      <div className="h-screen flex flex-col">
+      {/* Combined Hero and Experience Section */}
+      <div className="min-h-screen flex flex-col">
         <Navigation isPageLoaded={isPageLoaded} currentPage="home" />
 
-        {/* Main Hero Content */}
-        <div className="flex-1 flex items-center justify-center px-8">
+        {/* Main Content */}
+        <div className="flex-1 flex items-center justify-center px-8 py-16">
           <div className="max-w-6xl mx-auto text-center">
+            {/* Hero Content */}
             <div
-              className={`transition-all duration-700 ${
+              className={`transition-all duration-700 mb-20 ${
                 isPageLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
               }`}
               style={{ transitionDelay: "500ms" }}
@@ -93,7 +94,7 @@ export default function HomePage() {
               <p className="text-lg md:text-xl text-gray-600 dark:text-white font-mono tracking-wider mb-12 max-w-2xl mx-auto">
                 PREMIUM PRODUCTS EXPERIENCE
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
                 <Button
                   className="bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 border-0 text-sm font-medium tracking-widest uppercase px-8 py-4 transition-all duration-300 hover:scale-105"
                   onClick={handleShopNowClick}
@@ -110,91 +111,88 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
-          </div>
-        </div>
 
-      </div>
-
-      {/* Features Section */}
-      <section
-        className={`py-24 px-8 bg-gray-50 dark:bg-black border-t border-gray-200 dark:border-gray-800 transition-all duration-700 ${
-          isPageLoaded ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-        }`}
-        style={{ transitionDelay: "800ms" }}
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-medium tracking-widest uppercase mb-6">
-              EXPERIENCE LEGACY
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 font-mono tracking-wider max-w-2xl mx-auto">
-              Discover premium products crafted with precision and innovation
-            </p>
-          </div>
+            {/* Experience Legacy Content */}
+            <div
+              className={`transition-all duration-700 ${
+                isPageLoaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+              }`}
+              style={{ transitionDelay: "700ms" }}
+            >
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-medium tracking-widest uppercase mb-6">
+                  EXPERIENCE LEGACY
+                </h2>
+                <p className="text-lg text-gray-600 dark:text-gray-300 font-mono tracking-wider max-w-2xl mx-auto">
+                  Discover premium products crafted with precision and innovation
+                </p>
+              </div>
           
-          <div className="grid md:grid-cols-3 gap-12 mb-16">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-black dark:bg-white mx-auto mb-6 flex items-center justify-center">
-                <span className="text-white dark:text-black font-mono text-xl font-bold">01</span>
+              <div className="grid md:grid-cols-3 gap-12 mb-16">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-black dark:bg-white mx-auto mb-6 flex items-center justify-center">
+                    <span className="text-white dark:text-black font-mono text-xl font-bold">01</span>
+                  </div>
+                  <h3 className="text-xl font-medium tracking-widest uppercase mb-4">PREMIUM QUALITY</h3>
+                  <p className="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
+                    Every product undergoes rigorous quality control to meet our exceptional standards
+                  </p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-black dark:bg-white mx-auto mb-6 flex items-center justify-center">
+                    <span className="text-white dark:text-black font-mono text-xl font-bold">02</span>
+                  </div>
+                  <h3 className="text-xl font-medium tracking-widest uppercase mb-4">INNOVATIVE DESIGN</h3>
+                  <p className="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
+                    Cutting-edge aesthetics combined with functional excellence in every creation
+                  </p>
+                </div>
+                
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-black dark:bg-white mx-auto mb-6 flex items-center justify-center">
+                    <span className="text-white dark:text-black font-mono text-xl font-bold">03</span>
+                  </div>
+                  <h3 className="text-xl font-medium tracking-widest uppercase mb-4">CUSTOMER FOCUS</h3>
+                  <p className="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
+                    Your satisfaction drives our commitment to excellence and continuous improvement
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-medium tracking-widest uppercase mb-4">PREMIUM QUALITY</h3>
-              <p className="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
-                Every product undergoes rigorous quality control to meet our exceptional standards
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-black dark:bg-white mx-auto mb-6 flex items-center justify-center">
-                <span className="text-white dark:text-black font-mono text-xl font-bold">02</span>
-              </div>
-              <h3 className="text-xl font-medium tracking-widest uppercase mb-4">INNOVATIVE DESIGN</h3>
-              <p className="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
-                Cutting-edge aesthetics combined with functional excellence in every creation
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-16 h-16 bg-black dark:bg-white mx-auto mb-6 flex items-center justify-center">
-                <span className="text-white dark:text-black font-mono text-xl font-bold">03</span>
-              </div>
-              <h3 className="text-xl font-medium tracking-widest uppercase mb-4">CUSTOMER FOCUS</h3>
-              <p className="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
-                Your satisfaction drives our commitment to excellence and continuous improvement
-              </p>
-            </div>
-          </div>
 
-          {/* Social Media Section */}
-          <div className="text-center">
-            <h3 className="text-2xl font-medium tracking-widest uppercase mb-8">FOLLOW US</h3>
-            <div className="flex justify-center gap-6">
-              <button
-                onClick={() => handleSocialClick('instagram', socialMedia.instagram)}
-                className="w-12 h-12 bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-110 flex items-center justify-center"
-                aria-label="Follow us on Instagram"
-              >
-                <Instagram className="w-6 h-6" />
-              </button>
-              
-              <button
-                onClick={() => handleSocialClick('tiktok', socialMedia.tiktok)}
-                className="w-12 h-12 bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-110 flex items-center justify-center"
-                aria-label="Follow us on TikTok"
-              >
-                <TikTokIcon className="w-6 h-6" />
-              </button>
-              
-              <button
-                onClick={() => handleSocialClick('youtube', socialMedia.youtube)}
-                className="w-12 h-12 bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-110 flex items-center justify-center"
-                aria-label="Follow us on YouTube"
-              >
-                <Youtube className="w-6 h-6" />
-              </button>
+              {/* Social Media Section */}
+              <div className="text-center">
+                <h3 className="text-2xl font-medium tracking-widest uppercase mb-8">FOLLOW US</h3>
+                <div className="flex justify-center gap-6">
+                  <button
+                    onClick={() => handleSocialClick('instagram', socialMedia.instagram)}
+                    className="w-12 h-12 bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-110 flex items-center justify-center"
+                    aria-label="Follow us on Instagram"
+                  >
+                    <Instagram className="w-6 h-6" />
+                  </button>
+                  
+                  <button
+                    onClick={() => handleSocialClick('tiktok', socialMedia.tiktok)}
+                    className="w-12 h-12 bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-110 flex items-center justify-center"
+                    aria-label="Follow us on TikTok"
+                  >
+                    <TikTokIcon className="w-6 h-6" />
+                  </button>
+                  
+                  <button
+                    onClick={() => handleSocialClick('youtube', socialMedia.youtube)}
+                    className="w-12 h-12 bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-all duration-300 hover:scale-110 flex items-center justify-center"
+                    aria-label="Follow us on YouTube"
+                  >
+                    <Youtube className="w-6 h-6" />
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Footer */}
       <footer

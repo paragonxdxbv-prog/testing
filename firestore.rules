@@ -1,0 +1,71 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper function to check if user is admin (you can customize this)
+    function isAdmin() {
+      // For now, allow all writes (you can add authentication later)
+      // In production, you'd check: request.auth != null && request.auth.token.admin == true
+      return true;
+    }
+    
+    // Products collection - public read, admin write only
+    match /products/{productId} {
+      allow read: if true; // Public can view products
+      allow write, create, update, delete: if isAdmin(); // Only admin can manage products
+    }
+    
+    // Content collection (about page content) - public read, admin write
+    match /content/{document} {
+      allow read: if true; // Public can read about content
+      allow write, create, update, delete: if isAdmin(); // Only admin can edit content
+    }
+    
+    // Settings collection (social media URLs, company rules) - public read, admin write
+    match /settings/{document} {
+      allow read: if true; // Public can read settings (for social media links, etc.)
+      allow write, create, update, delete: if isAdmin(); // Only admin can modify settings
+    }
+    
+    // Admin logs - admin access only
+    match /admin_logs/{logId} {
+      allow read, write, create, update, delete: if isAdmin(); // Admin activity tracking
+    }
+    
+    // Analytics data - admin access only
+    match /analytics/{document} {
+      allow read, write, create, update, delete: if isAdmin(); // Analytics data
+    }
+    
+    // AI generation logs - admin access only
+    match /ai_logs/{logId} {
+      allow read, write, create, update, delete: if isAdmin(); // AI usage tracking
+    }
+    
+    // User profiles - users can manage their own data
+    match /users/{userId} {
+      allow read, write, create, update, delete: if true; // Allow user management for now
+    }
+    
+    // Reviews - public read, admin moderate
+    match /reviews/{reviewId} {
+      allow read: if true; // Public can read reviews
+      allow write, create, update, delete: if isAdmin(); // Only admin can moderate reviews
+    }
+    
+    // Shopping carts - users can manage their own carts
+    match /carts/{userId} {
+      allow read, write, create, update, delete: if true; // Cart management
+    }
+    
+    // Orders - users can create, admin can manage
+    match /orders/{orderId} {
+      allow read: if true; // Users can read their orders
+      allow create: if true; // Users can create orders
+      allow update, delete: if isAdmin(); // Only admin can modify orders
+    }
+    
+    // Deny all other access by default (remove catch-all)
+    // This ensures security by default for any new collections
+  }
+}

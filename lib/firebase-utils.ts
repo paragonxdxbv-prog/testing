@@ -177,15 +177,15 @@ export const getAboutContent = async () => {
       // Return default content if document doesn't exist
       return {
         heroTitle: "ABOUT LEGACY",
-        heroDescription: "WE ARE PIONEERS IN THE FUSION OF FASHION AND TECHNOLOGY, CREATING UNPRECEDENTED SHOPPING EXPERIENCES THAT BRIDGE THE GAP BETWEEN DIGITAL AND PHYSICAL REALITY.",
+        heroDescription: "WE ARE A PREMIUM FASHION BRAND DEDICATED TO CREATING EXCEPTIONAL SHOPPING EXPERIENCES THAT COMBINE STYLE, QUALITY, AND INNOVATION.",
         storyTitle: "OUR STORY",
         storyContent: [
-          "Founded in 2010, LEGACY emerged from a simple yet revolutionary idea: what if technology could make fashion more personal, more accessible, and more exciting than ever before?",
-          "We started as a small team of fashion enthusiasts and tech innovators, united by a shared vision of transforming how people discover, try on, and experience clothing in the digital age.",
-          "Today, we're proud to be at the forefront of AI-powered fashion technology, serving millions of customers worldwide with our innovative try-on experiences and premium product offerings."
+          "Founded in 2010, LEGACY emerged from a passion for creating premium fashion experiences that resonate with modern consumers who value both style and substance.",
+          "We started as a small team of fashion enthusiasts and designers, united by a shared vision of transforming how people discover and experience high-quality clothing and accessories.",
+          "Today, we're proud to be a leading premium fashion brand, serving customers worldwide with our carefully curated product offerings and exceptional customer service."
         ],
         missionTitle: "OUR MISSION",
-        missionContent: "TO DEMOCRATIZE FASHION BY MAKING IT MORE ACCESSIBLE, PERSONAL, AND SUSTAINABLE THROUGH INNOVATIVE TECHNOLOGY, WHILE MAINTAINING THE HIGHEST STANDARDS OF QUALITY AND CUSTOMER EXPERIENCE."
+        missionContent: "TO CREATE PREMIUM FASHION EXPERIENCES THAT INSPIRE CONFIDENCE AND SELF-EXPRESSION, WHILE MAINTAINING THE HIGHEST STANDARDS OF QUALITY, CRAFTSMANSHIP, AND CUSTOMER SERVICE."
       }
     }
     return null

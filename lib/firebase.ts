@@ -16,15 +16,30 @@ const firebaseConfig = {
   measurementId: "G-2E4HG0Q9RD"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Initialize Firebase with error handling
+let app: any = null;
+let auth: any = null;
+let db: any = null;
+let storage: any = null;
+let analytics: any = null;
 
-// Initialize Firebase services
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-export const storage = getStorage(app);
+try {
+  app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  db = getFirestore(app);
+  storage = getStorage(app);
+  
+  // Initialize Analytics (only in browser)
+  if (typeof window !== 'undefined') {
+    try {
+      analytics = getAnalytics(app);
+    } catch (error) {
+      console.warn('Analytics initialization failed:', error);
+    }
+  }
+} catch (error) {
+  console.error('Firebase initialization failed:', error);
+}
 
-// Initialize Analytics (only in browser)
-export const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null;
-
+export { auth, db, storage, analytics };
 export default app;
